@@ -8,14 +8,13 @@ using namespace std;
 
 bool isSorted(vector<int> &arr, int n)
 {
-    for (int i = 0; i < n; ++i)
+    for (int i = 1; i < n; ++i) // Start from 1 to avoid out-of-bounds while comparing between 1 st index and before that index
     {
         if (arr[i] < arr[i - 1])
         {
             return false;
         }
     }
-
     return true;
 }
 
@@ -34,18 +33,22 @@ int main()
             cin >> arr[i];
         }
 
+        // If already sorted or k >= 2, output YES
         if (isSorted(arr, n) || k >= 2)
         {
-            cout << "YES" << "\n";
+            cout << "YES"
+                 << "\n";
         }
         else
         {
-            cout << "NO" << "\n";
+            cout << "NO"
+                 << "\n";
         }
     }
 
     return 0;
 }
 
+
 //! Time Complexity = O(n)
-//! Space Complexity = O(1)
+//! Space Complexity = O(n)
